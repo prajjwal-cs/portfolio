@@ -39,6 +39,14 @@ const projects = [
     link: "https://github.com/prajjwal-cs",
     accent: "#69ff47",
   },
+  {
+    title: "CDC Service (Change Data Capture)",
+    tags: ["PostgreSQL", "Debezium", "Apache Kafka", "Spring Boot"],
+    desc: "Designed and implemented a Change Data Capture system using PostgreSQL, Debezium, and Apache Kafka to stream real-time database changes to downstream services. Configured Kafka topics and consumers to process INSERT, UPDATE, and DELETE events reliably — enabling event-driven architecture and near real-time data synchronization.",
+    link: "https://github.com/prajjwal-cs",
+    accent: "#ff9d00",
+    year: "2025",
+  },
 ];
 
 function TypewriterText({ text }) {
@@ -507,17 +515,20 @@ export default function App() {
                 whileHover={{ borderColor: p.accent }}
               >
                 <div className="project-header">
-                  <div className="project-title">{p.title}</div>
-                  <div className="project-tags">
-                    {p.tags.map((t) => (
-                      <span
-                        key={t}
-                        className="project-tag"
-                        style={{ background: `${p.accent}18`, color: p.accent, border: `1px solid ${p.accent}40` }}
-                      >
-                        {t}
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.7rem" }}>
+                    <div className="project-title">{p.title}</div>
+                    {p.year && (
+                      <span style={{
+                        fontFamily: "var(--font-mono)", fontSize: "0.68rem",
+                        color: "var(--muted)", border: "1px solid var(--border)",
+                        padding: "0.2rem 0.55rem", borderRadius: "999px"
+                      }}>
+                        {p.year}
                       </span>
-                    ))}
+                    )}
+                  </div>
+                  <div className="project-tags">
+                    {p.tags.map((t) => (... ))}
                   </div>
                 </div>
                 <p className="project-desc">{p.desc}</p>
